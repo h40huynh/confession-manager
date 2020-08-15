@@ -2,7 +2,6 @@
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
 
 import Home from "./components/Home/Home";
 
@@ -17,7 +16,6 @@ const App = () => {
         <Route exact path="/" component={Home} />
         <Route path="/Authentication" component={Authentication} />
       </Switch>
-      <Footer />
     </React.Fragment>
   );
 };

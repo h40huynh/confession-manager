@@ -4,7 +4,8 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import registerServiceWorker from "./registerServiceWorker";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap";
+import "bootstrap/dist/js/bootstrap.min";
+import "./index.css";
 
 ReactDOM.render(
   <BrowserRouter>
