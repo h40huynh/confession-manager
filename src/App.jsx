@@ -10,16 +10,16 @@ import Authentication from "./components/Authentication/Authentication";
 
 //TODO Web Template Studio: Add routes for your new pages here.
 const App = () => {
-    return (
-      <React.Fragment>
-        <NavBar />
-        <Switch>
-          <Route exact path = "/" component = { Home } />
-          <Route path = "/Authentication" component = { Authentication } />
-        </Switch>
-        <Footer />
-      </React.Fragment>
-    );
-}
+  return (
+    <React.Fragment>
+      <NavBar />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/Authentication" component={Authentication} />
+      </Switch>
+      <Footer />
+    </React.Fragment>
+  );
+};
 
 export default App;
