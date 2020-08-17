@@ -1,6 +1,5 @@
 ﻿import React from "react";
 import { NavLink, Link } from "react-router-dom";
-import "./navbar.css";
 import logo from "../../images/logo.png";
 
 //TODO Web Template Studio: Add a new link in the NavBar for your page here.
@@ -8,8 +7,7 @@ import logo from "../../images/logo.png";
 const NavBar = () => {
   const menuList = [
     { title: "Trang chủ", link: "/" },
-    { title: "Giới thiệu", link: "/About" },
-    { title: "Quản lý", link: "/Authentication" },
+    { title: "Quản lý", link: "/Manager" },
   ];
 
   return (
