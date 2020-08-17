@@ -7,6 +7,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min";
 import "./index.css";
 
+document.title = "NVDConfession";
+
 ReactDOM.render(
   <BrowserRouter>
     <App />
