@@ -77,7 +77,8 @@ const Manager = () => {
               "\r\n" +
               new Date(p.createdAt).toLocaleString("vi-VN") +
               "\r\n" +
-              p.content
+              p.content +
+              "\r\n------\r\n"
           );
 
           history.push({
