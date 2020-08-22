@@ -12,6 +12,11 @@ const app = express();
 dotenv.config({ path: ".env.local" });
 require("./app/dbconnect");
 
+// if (process.env.NODE_ENV == "development") {
+//   const delay = require("express-delay");
+//   app.use(delay(1000));
+// }
+
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
