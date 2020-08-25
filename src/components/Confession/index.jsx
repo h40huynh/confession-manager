@@ -222,10 +222,10 @@ const Manager = () => {
               variant="secondary"
               onClick={() => setShowModalSate({ isShow: false, action: "" })}
             >
-              Close
+              Dừng lại
             </Button>
             <Button variant="primary" onClick={modalConfirm}>
-              Save Changes
+              Tiếp tục
             </Button>
           </Modal.Footer>
         </Modal>
