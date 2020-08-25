@@ -11,12 +11,18 @@ import {
   Container,
   Button,
   ButtonGroup,
+  Modal,
 } from "react-bootstrap";
 
 const Manager = () => {
   const [contentState, setContentState] = useState();
   const [checkedState, setCheckedState] = useState();
   const [loadingState, setLoadingSate] = useState("");
+  const [showModalSate, setShowModalSate] = useState({
+    isShow: false,
+    action: "",
+  });
+
   const history = useHistory();
 
   const jwt = useSelector((state) => state.token);
@@ -78,7 +84,7 @@ const Manager = () => {
               new Date(p.createdAt).toLocaleString("vi-VN") +
               "\r\n" +
               p.content +
-              "\r\n------\r\n"
+              "\r\n------"
           );
 
           history.push({
@@ -101,6 +107,15 @@ const Manager = () => {
         }
       }
     );
+  };
+
+  const modalConfirm = () => {
+    setShowModalSate(false);
+    if (showModalSate.action === "accept") {
+      acceptConfession();
+    } else {
+      deleteConfession();
+    }
   };
 
   useEffect(() => {
@@ -177,8 +192,10 @@ const Manager = () => {
                       </div>
                     </td>
                     <td>
-                      {confession.content} <br />
-                      {confession.category}
+                      {"#" + confession._id} <br />
+                      {new Date(confession.createdAt).toLocaleString("vi-VN")}
+                      <br />
+                      {confession.content}
                     </td>
                   </tr>
                 ))
@@ -186,10 +203,37 @@ const Manager = () => {
           </tbody>
         </Table>
 
+        <Modal
+          show={showModalSate.isShow}
+          onHide={() => setShowModalSate({ isShow: false, action: "" })}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>
+              Bạn đang thực hiện{" "}
+              {showModalSate.action === "accept" ? "duyệt" : "xóa"} confession
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            Lưu ý, hành động không thể hoàn tác, chuối cũng không cứu được đâu
+            :))
+          </Modal.Body>
+          <Modal.Footer>
+            <Button
+              variant="secondary"
+              onClick={() => setShowModalSate({ isShow: false, action: "" })}
+            >
+              Close
+            </Button>
+            <Button variant="primary" onClick={modalConfirm}>
+              Save Changes
+            </Button>
+          </Modal.Footer>
+        </Modal>
+
         <ButtonGroup className="btn-manager-tools" role="group">
           <Button
             disabled={checkedState ? checkedState.length === 0 : false}
-            onClick={acceptConfession}
+            onClick={() => setShowModalSate({ isShow: true, action: "accept" })}
           >
             {loadingState === "accept" ? (
               <Spinner animation="border"></Spinner>
@@ -200,7 +244,7 @@ const Manager = () => {
           <Button
             disabled={checkedState ? checkedState.length === 0 : false}
             variant="danger"
-            onClick={deleteConfession}
+            onClick={() => setShowModalSate({ isShow: true, action: "delete" })}
           >
             {loadingState === "delete" ? (
               <Spinner animation="border"></Spinner>

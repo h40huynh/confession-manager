@@ -8,6 +8,7 @@ import {
   FormGroup,
   FormControl,
   FormText,
+  Button,
 } from "react-bootstrap";
 
 const Authentication = () => {
@@ -41,9 +42,9 @@ const Authentication = () => {
               có thể vào trang quản lý bài viết.
             </FormText>
           </FormGroup>
-          <button className="btn btn-dark" onClick={authenticate}>
+          <Button variant="dark" onClick={authenticate}>
             {loadingState ? <Spinner animation="border"></Spinner> : "Xác nhận"}
-          </button>
+          </Button>
         </div>
       </Container>
     </main>
