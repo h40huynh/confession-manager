@@ -55,8 +55,8 @@ const Home = () => {
               className="form-text text-muted text-justify"
             >
               <b>Lưu ý:</b> sử dụng ngôn ngữ phù hợp, hạn chế nhắc tên cụ thể
-              một bạn nào đó để tránh gây phiền phức. Quan trọng nhất, viết tắt
-              thì một số quản trị viên sẽ xóa bài.
+              một bạn nào đó để tránh gây phiền phức.
+              <b> Nhớ chào hỏi, cám ơn (nếu cần) và tránh viết tắt nha.</b>
             </FormText>
           </FormGroup>
 
